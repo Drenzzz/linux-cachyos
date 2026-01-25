@@ -20,7 +20,7 @@
 # 'eevdf' - select 'EEVDF Scheduler'
 # 'rt' - select EEVDF, but includes a series of realtime patches
 # 'rt-bore' - select Burst-Oriented Response Enhancer, but includes a series of realtime patches
-: "${_cpusched:=cachyos}"
+: "${_cpusched:=eevdf}"
 
 ### Tweak kernel options prior to a build via nconfig
 : "${_makenconfig:=no}"
