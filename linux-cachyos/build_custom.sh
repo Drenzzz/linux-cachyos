@@ -19,11 +19,12 @@ export _localmodcfg="yes"
 export _processor_opt="native"
 export _build_debug="no"
 export _use_llvm_lto="thin"
+export _custom_suffix="" # Reset by default
 
 if [[ "$VARIANT" == "balanced" ]]; then
     echo "🔧 Applying BALANCED configuration..."
     export _cpusched="eevdf"
-    export _HZ_ticks="300"
+    export _HZ_ticks="600"
     export _tcp_bbr3="yes"
     export _per_gov="no"
     export _tickrate="full"
@@ -37,6 +38,7 @@ elif [[ "$VARIANT" == "performance" ]]; then
     export _per_gov="yes"      # Performance governor
     export _tickrate="full"
     export _cc_harder="yes"    # Enable -O3
+    export _custom_suffix="custom-perf"
 
 else
     echo "❌ Unknown variant: $VARIANT"

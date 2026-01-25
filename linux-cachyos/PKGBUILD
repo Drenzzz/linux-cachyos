@@ -156,7 +156,9 @@ _is_ci_build() {
     return $?
 }
 
-if _is_lto_kernel && [ "$_use_lto_suffix" = "yes"  ]; then
+if [ -n "$_custom_suffix" ]; then
+    _pkgsuffix="$_custom_suffix"
+elif _is_lto_kernel && [ "$_use_lto_suffix" = "yes"  ]; then
     _pkgsuffix=custom-lto
 elif ! _is_lto_kernel && [ "$_use_gcc_suffix" = "yes" ]; then
     _pkgsuffix=custom-gcc
