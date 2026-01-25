@@ -1,5 +1,5 @@
-pkgbase = linux-cachyos
-	pkgdesc = Linux EEVDF + LTO + AutoFDO + Propeller Cachy Sauce Kernel by CachyOS with other patches and improvements.
+pkgbase = linux-custom
+	pkgdesc = Linux Custom Kernel (Based on CachyOS) - Balanced/Performance Variants
 	pkgver = 6.18.7
 	pkgrel = 1
 	url = https://github.com/CachyOS/linux-cachyos
@@ -33,8 +33,8 @@ pkgbase = linux-cachyos
 	b2sums = 80b13ad1f6a5cf2f9f28ab9d66a3e7e8171f8ba972d937d0d11a6e218d3642e4b9cae665b787b0aae8376b94a0c6fdcf9f5b8e1d81008fb7283588cc942c34e9
 	b2sums = c7294a689f70b2a44b0c4e9f00c61dbd59dd7063ecbe18655c4e7f12e21ed7c5bb4f5169f5aa8623b1c59de7b2667facb024913ecb9f4c650dabce4e8a7e5452
 
-pkgname = linux-cachyos
-	pkgdesc = The Linux EEVDF + LTO + AutoFDO + Propeller Cachy Sauce Kernel by CachyOS with other patches and improvements. kernel and modules
+pkgname = linux-custom
+	pkgdesc = The Linux Custom Kernel (Based on CachyOS) - Balanced/Performance Variants kernel and modules
 	depends = coreutils
 	depends = kmod
 	depends = initramfs
@@ -52,14 +52,10 @@ pkgname = linux-cachyos
 	provides = linux-cachyos-lto=6.18.7-1
 	replaces = linux-cachyos-lto
 
-pkgname = linux-cachyos-dbg
-	pkgdesc = Non-stripped vmlinux file for the Linux EEVDF + LTO + AutoFDO + Propeller Cachy Sauce Kernel by CachyOS with other patches and improvements. kernel
-	depends = linux-cachyos-headers
-
-pkgname = linux-cachyos-headers
-	pkgdesc = Headers and scripts for building modules for the Linux EEVDF + LTO + AutoFDO + Propeller Cachy Sauce Kernel by CachyOS with other patches and improvements. kernel
+pkgname = linux-custom-headers
+	pkgdesc = Headers and scripts for building modules for the Linux Custom Kernel (Based on CachyOS) - Balanced/Performance Variants kernel
 	depends = pahole
-	depends = linux-cachyos
+	depends = linux-custom
 	depends = clang
 	depends = llvm
 	depends = lld

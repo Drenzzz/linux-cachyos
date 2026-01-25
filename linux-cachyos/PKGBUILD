@@ -157,11 +157,11 @@ _is_ci_build() {
 }
 
 if _is_lto_kernel && [ "$_use_lto_suffix" = "yes"  ]; then
-    _pkgsuffix=cachyos-lto
+    _pkgsuffix=custom-lto
 elif ! _is_lto_kernel && [ "$_use_gcc_suffix" = "yes" ]; then
-    _pkgsuffix=cachyos-gcc
+    _pkgsuffix=custom-gcc
 else
-    _pkgsuffix=cachyos
+    _pkgsuffix=custom
 fi
 
 pkgbase="linux-$_pkgsuffix"
@@ -175,7 +175,7 @@ _stable=${_major}.${_minor}
 #_stablerc=${_major}-${_rcver}
 _srcname=linux-${_stable}
 #_srcname=linux-${_major}
-pkgdesc='Linux EEVDF + LTO + AutoFDO + Propeller Cachy Sauce Kernel by CachyOS with other patches and improvements.'
+pkgdesc='Linux Custom Kernel (Based on CachyOS) - Balanced/Performance Variants'
 pkgrel=1
 _kernver="$pkgver-$pkgrel"
 _kernuname="${pkgver}-${_pkgsuffix}"
