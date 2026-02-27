@@ -136,11 +136,11 @@ _is_ci_build() {
 }
 
 if _is_lto_kernel && [ "$_use_lto_suffix" = "yes"  ]; then
-    _pkgsuffix="cachyos-${_cpusched}-lto"
+    _pkgsuffix="custom-lto"
 elif ! _is_lto_kernel && [ "$_use_gcc_suffix" = "yes" ]; then
-    _pkgsuffix="cachyos-${_cpusched}-gcc"
+    _pkgsuffix="custom-gcc"
 else
-    _pkgsuffix="cachyos-${_cpusched}"
+    _pkgsuffix="custom"
 fi
 
 pkgbase="linux-$_pkgsuffix"
