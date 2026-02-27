@@ -19,21 +19,38 @@ if [[ "$ac_mode" != "ac" && "$ac_mode" != "ac-perf" ]]; then
 fi
 
 is_ac_online=0
+has_mains_entry=0
 
 for ps in /sys/class/power_supply/*; do
   [[ -d "$ps" ]] || continue
   [[ -r "$ps/type" && -r "$ps/online" ]] || continue
 
-  ps_type="$(<"$ps/type")"
-  case "$ps_type" in
-    Mains|USB|USB_C)
-      if [[ "$(<"$ps/online")" == "1" ]]; then
-        is_ac_online=1
-        break
-      fi
-      ;;
-  esac
+ps_type="$(<"$ps/type")"
+  if [[ "$ps_type" == "Mains" ]]; then
+    has_mains_entry=1
+    if [[ "$(<"$ps/online")" == "1" ]]; then
+      is_ac_online=1
+      break
+    fi
+  fi
 done
+
+if [[ "$has_mains_entry" == "0" ]]; then
+  for ps in /sys/class/power_supply/*; do
+    [[ -d "$ps" ]] || continue
+    [[ -r "$ps/type" && -r "$ps/online" ]] || continue
+
+    ps_type="$(<"$ps/type")"
+    case "$ps_type" in
+      USB|USB_C)
+        if [[ "$(<"$ps/online")" == "1" ]]; then
+          is_ac_online=1
+          break
+        fi
+        ;;
+    esac
+  done
+fi
 
 if [[ "$is_ac_online" == "1" ]]; then
   exec "$SWITCH_SCRIPT" "$ac_mode"
