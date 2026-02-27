@@ -1,6 +1,6 @@
 pkgbase = linux-custom
 	pkgdesc = Linux Custom Kernel (Based on CachyOS) - Balanced/Performance Variants
-	pkgver = 6.18.7
+	pkgver = 6.19.4
 	pkgrel = 1
 	url = https://github.com/CachyOS/linux-cachyos
 	arch = x86_64
@@ -24,14 +24,12 @@ pkgbase = linux-custom
 	options = !strip
 	options = !debug
 	options = !lto
-	source = https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.7.tar.xz
+	source = https://github.com/CachyOS/linux/releases/download/cachyos-6.19.4-2/cachyos-6.19.4-2.tar.gz
 	source = config
-	source = https://raw.githubusercontent.com/cachyos/kernel-patches/master/6.18/all/0001-cachyos-base-all.patch
-	source = https://raw.githubusercontent.com/cachyos/kernel-patches/master/6.18/misc/dkms-clang.patch
-	b2sums = 3ad31b9b36ea2c8f865c87e63c97a4e7b6684abee35ae71d5838026de9f476edb4c847adab315235293c5f37f8f3b90799ae2b3d41915716710eae63acbf6863
-	b2sums = 45b0b8dd67f66623d8f1b1ba390e2271192ba734a66650a73c3e0460aef22c667c2d05c4c57e059bf1c3a48e3b9a369e83d34a58aefb975b717d33742bf5e56b
-	b2sums = 80b13ad1f6a5cf2f9f28ab9d66a3e7e8171f8ba972d937d0d11a6e218d3642e4b9cae665b787b0aae8376b94a0c6fdcf9f5b8e1d81008fb7283588cc942c34e9
-	b2sums = c7294a689f70b2a44b0c4e9f00c61dbd59dd7063ecbe18655c4e7f12e21ed7c5bb4f5169f5aa8623b1c59de7b2667facb024913ecb9f4c650dabce4e8a7e5452
+	source = https://raw.githubusercontent.com/cachyos/kernel-patches/master/6.19/misc/dkms-clang.patch
+	b2sums = fdae47876ff30f643033bd6f6a178b6b2330c7e9707240faa3ea81cdd49d94fbce2ef8766a4a6d85044260f968b64722d4ce7d17993b2f32d0401f8dc83e263e
+	b2sums = 5070693f911739fe6375656b5612b5372c8ea9d289672e7ff535d7d2df18e4e7252370b1a1c865f44574cf933266f83ee6b2e24e7dd4674ba500f63f9a8100a5
+	b2sums = ea26c88950fc06b6ffab93b30e3beacc7d26571a70262334ca8b001dc7899bf96b47d703fbaa7f4e47765c3dafccc23c58a4d4da2169b8ee50012afcb7a1dd96
 
 pkgname = linux-custom
 	pkgdesc = The Linux Custom Kernel (Based on CachyOS) - Balanced/Performance Variants kernel and modules
@@ -49,7 +47,7 @@ pkgname = linux-custom
 	provides = NTSYNC-MODULE
 	provides = VHBA-MODULE
 	provides = ADIOS-MODULE
-	provides = linux-cachyos-lto=6.18.7-1
+	provides = linux-cachyos-lto=6.19.4-1
 	replaces = linux-cachyos-lto
 
 pkgname = linux-custom-headers
@@ -59,5 +57,5 @@ pkgname = linux-custom-headers
 	depends = clang
 	depends = llvm
 	depends = lld
-	provides = linux-cachyos-lto-headers=6.18.7-1
+	provides = linux-cachyos-lto-headers=6.19.4-1
 	replaces = linux-cachyos-lto-headers
