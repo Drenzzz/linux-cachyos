@@ -55,17 +55,17 @@
 : "${_per_gov:=no}"
 
 ### Enable TCP_CONG_BBR3
-: "${_tcp_bbr3:=no}"
+: "${_tcp_bbr3:=yes}"
 
 ### Running with a 1000HZ, 750Hz, 600 Hz, 500Hz, 300Hz, 250Hz and 100Hz tick rate
-: "${_HZ_ticks:=1000}"
+: "${_HZ_ticks:=600}"
 
 ## Choose between perodic, idle or full
 ### Full tickless can give higher performances in various cases but, depending on hardware, lower consistency.
-: "${_tickrate:=full}"
+: "${_tickrate:=idle}"
 
 ## Choose between full(low-latency), lazy, voluntary or none
-: "${_preempt:=full}"
+: "${_preempt:=voluntary}"
 
 ### Transparent Hugepages
 # ATTENTION - one of two predefined values should be selected!
@@ -73,7 +73,7 @@
 # 'madvise' - madvise, prevent applications from allocating more memory resources than necessary
 # More infos here:
 # https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/performance_tuning_guide/sect-red_hat_enterprise_linux-performance_tuning_guide-configuring_transparent_huge_pages
-: "${_hugepage:=always}"
+: "${_hugepage:=madvise}"
 
 # CPU compiler optimizations - Defaults to native if left empty
 # - "native" (use compiler autodetection)
@@ -87,14 +87,14 @@
 # "thin: uses multiple threads, faster and uses less memory, may have a lower runtime performance than Full."
 # "thin-dist: Similar to thin, but uses a distributed model rather than in-process: https://discourse.llvm.org/t/rfc-distributed-thinlto-build-for-kernel/85934"
 # "none: disable LTO
-: "${_use_llvm_lto:=none}"
+: "${_use_llvm_lto:=thin}"
 
 # Use suffix -lto only when requested by the user
 # Enabled by default.
 # yes - enable -lto suffix
 # no - disable -lto suffix
 # https://github.com/CachyOS/linux-cachyos/issues/36
-: "${_use_lto_suffix:=yes}"
+: "${_use_lto_suffix:=no}"
 
 # Use suffix -gcc when requested by the user
 # This was added to facilitate https://github.com/CachyOS/linux-cachyos/issues/286
