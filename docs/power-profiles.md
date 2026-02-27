@@ -27,6 +27,29 @@ sudo cpupower frequency-set -g powersave
 sudo cpupower frequency-set -g performance
 ```
 
-## Hook Integration
+## Hook Integration (Auto Switch)
 
-Use `scripts/power-mode-switch.sh` from an ACPI/udev hook to auto-switch based on charger state.
+### Install udev hook (recommended)
+
+```bash
+sudo scripts/install-power-hooks.sh --ac-mode ac
+```
+
+Use `--ac-mode ac-perf` if you want AC state to always force performance profile.
+
+### Optional acpid hook
+
+```bash
+sudo scripts/install-power-hooks.sh --ac-mode ac --with-acpid
+```
+
+### Installed files
+
+- `/usr/local/libexec/custom-kernel/power-mode-switch.sh`
+- `/usr/local/libexec/custom-kernel/power-hook-dispatch.sh`
+- `/etc/udev/rules.d/99-custom-kernel-power.rules`
+- `/etc/default/custom-kernel-power`
+
+Optional:
+
+- `/etc/acpi/events/custom-kernel-power`

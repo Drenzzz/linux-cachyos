@@ -5,7 +5,7 @@ set -euo pipefail
 state="${1:-}"
 
 if [[ -z "$state" ]]; then
-  echo "Usage: $0 [battery|ac]"
+  echo "Usage: $0 [battery|ac|ac-perf]"
   exit 1
 fi
 

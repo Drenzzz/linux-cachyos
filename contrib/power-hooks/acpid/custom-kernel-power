@@ -1,0 +1,2 @@
+event=ac_adapter.*
+action=/usr/local/libexec/custom-kernel/power-hook-dispatch.sh
